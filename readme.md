@@ -11,7 +11,7 @@ Please note that these are very simple scripts that don't implement error checki
 
 ## Usage
 
-	$ git clone https://github.com/kasparsd/php-7-debian.git
+	$ git clone https://github.com/flph/php-7-debian.git
 	$ cd php-7-debian
 	$ ./build.sh
 	$ sudo ./install.sh
