@@ -5,6 +5,7 @@ cd "$(dirname "$0")"
 sudo apt-get update
 sudo apt-get install -y \
     apache2 \
+    apache2-dev \
     build-essential \
     pkg-config \
     git-core \
@@ -24,7 +25,8 @@ sudo apt-get install -y \
     libxpm-dev \
     libfreetype6-dev \
     libpq-dev \
-    libxslt-dev 
+    libxslt-dev \
+    perl
 
 sudo mkdir /usr/local/php7
 
