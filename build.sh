@@ -19,55 +19,66 @@ sudo apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libpspell-dev \
-    libreadline-dev
+    libreadline-dev \
+    libxpm-dev \
+    libfreetype6-dev \
+    libpq-dev \
+    libxslt-dev 
 
 sudo mkdir /usr/local/php7
 
 git clone https://github.com/php/php-src.git
 cd php-src
-git checkout PHP-7.0.6
+git checkout PHP-7.0.7
 git pull
 ./buildconf --force
 
 CONFIGURE_STRING="--prefix=/usr/local/php7 \
-                  --with-config-file-scan-dir=/usr/local/php7/etc/conf.d \
-                  --without-pear \
-                  --enable-bcmath \
-                  --with-bz2 \
-                  --enable-calendar \
-                  --enable-intl \
-                  --enable-exif \
-                  --enable-dba \
-                  --enable-ftp \
-                  --with-gettext \
-                  --with-gd \
-                  --with-jpeg-dir \
-                  --enable-mbstring \
-                  --with-mcrypt \
-                  --with-mhash \
-                  --enable-mysqlnd \
-                  --with-mysql=mysqlnd \
-                  --with-mysql-sock=/var/run/mysqld/mysqld.sock \
-                  --with-mysqli=mysqlnd \
-                  --with-pdo-mysql=mysqlnd \
-                  --with-openssl \
-                  --enable-pcntl \
-                  --with-pspell \
-                  --enable-shmop \
-                  --enable-soap \
-                  --enable-sockets \
-                  --enable-sysvmsg \
-                  --enable-sysvsem \
-                  --enable-sysvshm \
-                  --enable-wddx \
-                  --with-zlib \
-                  --enable-zip \
-                  --with-readline \
-                  --with-curl \
-                  --enable-fpm \
-                  --with-fpm-user=www-data \
-                  --with-fpm-group=www-data"
-
+            --with-config-file-scan-dir=/usr/local/php7/etc/conf.d \
+	    --with-layout=PHP \
+            --with-curl \
+            --with-pear \
+            --with-zlib \
+            --with-mhash \
+            --with-pgsql \
+            --with-mysqli \
+            --with-pdo-mysql \
+            --with-pdo-pgsql \
+            --with-openssl \
+            --with-xmlrpc \
+            --with-xsl \
+            --with-bz2 \
+            --with-gettext \
+            --with-readline \
+            --with-fpm-user=www-data \
+            --with-fpm-group=www-data \
+            --with-kerberos \
+            --with-gd \
+            --with-jpeg-dir \
+            --with-png-dir \
+            --with-png-dir \
+            --with-xpm-dir \
+            --with-freetype-dir \
+	    --with-apxs2 \
+            --enable-gd-native-ttf \
+            --enable-fpm \
+            --enable-cli \
+            --enable-inline-optimization \
+            --enable-exif \
+            --enable-wddx \
+            --enable-zip \
+            --enable-bcmath \
+            --enable-calendar \
+            --enable-ftp \
+            --enable-mbstring \
+            --enable-soap \
+            --enable-sockets \
+            --enable-shmop \
+            --enable-dba \
+            --enable-sysvsem \
+            --enable-sysvshm \
+            --enable-sysvmsg \
+            --enable-intl" 
 ./configure $CONFIGURE_STRING
 
 make

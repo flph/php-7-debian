@@ -17,5 +17,5 @@ cp conf/modules.ini /usr/local/php7/etc/conf.d/modules.ini
 cp conf/php7-fpm.init /etc/init.d/php7-fpm
 chmod +x /etc/init.d/php7-fpm
 update-rc.d php7-fpm defaults
-
+ln -s /usr/local/php7/bin/php /usr/bin/php
 service php7-fpm start
