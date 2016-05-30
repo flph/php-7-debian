@@ -4,6 +4,7 @@ cd "$(dirname "$0")"
 # Dependencies
 sudo apt-get update
 sudo apt-get install -y \
+    apache2 \
     build-essential \
     pkg-config \
     git-core \
