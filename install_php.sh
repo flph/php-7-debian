@@ -1,6 +1,9 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
+# Disable apache mpm_worker
+a2dismod mpm_worker
+
 # Create a dir for storing PHP module conf
 mkdir /usr/local/php7/etc/conf.d
 
