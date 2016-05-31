@@ -19,3 +19,10 @@ chmod +x /etc/init.d/php7-fpm
 update-rc.d php7-fpm defaults
 ln -s /usr/local/php7/bin/php /usr/bin/php
 service php7-fpm start
+
+#apache stuff
+a2dismod mpm_event
+a2dismod mpm_worker
+a2enmod mpm_prefork
+a2enmod php7
+a2enmod rewrite
