@@ -2,6 +2,9 @@
 cd "$(dirname "$0")"
 
 # Dependencies
+apt-get remove bison
+sh build_bison.sh
+
 sudo apt-get update
 sudo apt-get install -y \
     apache2 \
@@ -10,7 +13,6 @@ sudo apt-get install -y \
     pkg-config \
     git-core \
     autoconf \
-    bison \
     libxml2-dev \
     libbz2-dev \
     libmcrypt-dev \
