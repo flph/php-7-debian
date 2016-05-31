@@ -26,3 +26,14 @@ a2dismod mpm_worker
 a2enmod mpm_prefork
 a2enmod php7
 a2enmod rewrite
+
+#handle php with apache
+cat >/etc/apache2/conf-available/php7.conf <<ENDOFCONTENT
+#PHP7
+<FilesMatch \.php$>
+SetHandler application/x-httpd-php
+</FilesMatch>
+ENDOFCONTENT
+
+a2enconf php7
+service apache2 restart
