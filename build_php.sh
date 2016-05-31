@@ -2,6 +2,8 @@
 cd "$(dirname "$0")"
 
 # Dependencies
+sh build_bison.sh
+
 sudo apt-get update
 sudo apt-get install -y \
     apache2 \
@@ -10,7 +12,6 @@ sudo apt-get install -y \
     pkg-config \
     git-core \
     autoconf \
-    bison \
     libxml2-dev \
     libbz2-dev \
     libmcrypt-dev \
@@ -26,18 +27,18 @@ sudo apt-get install -y \
     libfreetype6-dev \
     libpq-dev \
     libxslt-dev \
-    perl
+    perl \
+    re2c 
 
-sudo mkdir /usr/local/php7
+sudo mkdir /usr/local/php5
 
 git clone https://github.com/php/php-src.git
 cd php-src
-git checkout PHP-7.0.7
-git pull
+git checkout PHP-5.6.22
 ./buildconf --force
 
-CONFIGURE_STRING="--prefix=/usr/local/php7 \
-            --with-config-file-scan-dir=/usr/local/php7/etc/conf.d \
+CONFIGURE_STRING="--prefix=/usr/local/php5 \
+            --with-config-file-scan-dir=/usr/local/php5/etc/conf.d \
 	    --with-layout=PHP \
             --with-curl \
             --with-pear \
@@ -58,7 +59,6 @@ CONFIGURE_STRING="--prefix=/usr/local/php7 \
             --with-kerberos \
             --with-gd \
             --with-jpeg-dir \
-            --with-png-dir \
             --with-png-dir \
             --with-xpm-dir \
             --with-freetype-dir \
@@ -81,7 +81,8 @@ CONFIGURE_STRING="--prefix=/usr/local/php7 \
             --enable-sysvsem \
             --enable-sysvshm \
             --enable-sysvmsg \
-            --enable-intl" 
+            --enable-intl"
+
 ./configure $CONFIGURE_STRING
 
 make
