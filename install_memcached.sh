@@ -9,7 +9,7 @@ sudo apt-get install -y \
 git clone https://github.com/php-memcached-dev/php-memcached
 cd php-memcached
 git checkout -b master origin/master
-make clean
+
 /usr/local/php5/bin/phpize
 ./configure --with-php-config=/usr/local/php5/bin/php-config
 make
